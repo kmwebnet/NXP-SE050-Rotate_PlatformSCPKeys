@@ -28,6 +28,17 @@ This communicates NXP SE050 secure chip from ESP32 and extract a demo written by
 and download "Plug & Trust MW Release v02.16.01" from NXP website
 and put the contents into components/se050/ as "simw-top" folder. 
 you need to change a serial port number which actually connected to ESP32 in platformio.ini.  
+And please make sure that you have changed the following part of components/se050/ex_sss_auth.h regarding default ENC,MAC,DEK keys for which device actually you connected.   
+
+```
+/* Use the Platform SCP03 keys from required OEF
+ * See https://www.nxp.com/docs/en/application-note/AN12436.pdf
+ */
+
+#   define EX_SSS_AUTH_SE05X_KEY_ENC SSS_AUTH_SE050C1_KEY_ENC
+#   define EX_SSS_AUTH_SE05X_KEY_MAC SSS_AUTH_SE050C1_KEY_MAC
+#   define EX_SSS_AUTH_SE05X_KEY_DEK SSS_AUTH_SE050C1_KEY_DEK
+```
 
 # Run this project
 
